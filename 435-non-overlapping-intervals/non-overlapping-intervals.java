@@ -34,30 +34,47 @@ class Solution {
         //-----------------------------------------------------------------------------------
         //Approch 2 ->
 
-        Arrays.sort(intervals , (a , b) -> Integer.compare(a[0],b[0]));
+        // Arrays.sort(intervals , (a , b) -> Integer.compare(a[0],b[0]));
+        // int n = intervals.length;
+        // int count = 0;
+        // int i = 1;
+        // int[] last_interval = intervals[0];
+
+        // while(i < n){
+
+
+        //     if(last_interval[1] <= intervals[i][0]){
+        //         last_interval = intervals[i];
+        //         i++;
+        //     }
+        //     else if(intervals[i][1] >= last_interval[1]){
+        //         i++;
+        //         count++;
+        //     }
+        //     else if(intervals[i][1] < last_interval[1]){
+        //         last_interval = intervals[i];
+        //         i++;
+        //         count++;
+        //     }
+        // }
+
+        // return count;
+        //--------------------------------------------------------------------------------
+
+        //Sort on the basis of end ->
+
+        Arrays.sort(intervals ,(a ,b)->Integer.compare(a[1],b[1]));
         int n = intervals.length;
         int count = 0;
-        int i = 1;
-        int[] last_interval = intervals[0];
+        int lastEnd = intervals[0][1];
 
-        while(i < n){
-
-
-            if(last_interval[1] <= intervals[i][0]){
-                last_interval = intervals[i];
-                i++;
-            }
-            else if(intervals[i][1] >= last_interval[1]){
-                i++;
+        for(int i = 1 ; i < n ; i++){
+            if(intervals[i][0]<lastEnd){
                 count++;
-            }
-            else if(intervals[i][1] < last_interval[1]){
-                last_interval = intervals[i];
-                i++;
-                count++;
+            }else{
+                lastEnd = intervals[i][1];
             }
         }
-
         return count;
     }
 }
