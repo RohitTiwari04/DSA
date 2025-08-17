@@ -1,6 +1,8 @@
 class Solution {
     public int peakIndexInMountainArray(int[] arr) {
         int n = arr.length;
+
+        //Fist and last element can't be peak -->
         int low = 1;
         int high = n-2;
 
