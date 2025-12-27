@@ -5,13 +5,13 @@ class Solution {
             sum += a;
         }
 
-        // Convert cap array to Integer[] for reverse sorting
+    
         Integer[] capacity = new Integer[cap.length];
         for (int i = 0; i < cap.length; i++) {
             capacity[i] = cap[i];
         }
 
-        // Sort in descending order
+    
         Arrays.sort(capacity, Collections.reverseOrder());
 
         int res = 0;
