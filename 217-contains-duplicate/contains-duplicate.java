@@ -1,44 +1,37 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
+       int n = nums.length;
+    // nested loop --> TLE
+    //    for(int i = 0 ; i < n ; i++){
+    //     for(int j = i+1 ; j< n ; j++){
+    //         if(nums[i] == nums[j]){
+    //             return true;
+    //         }
+    //     }
 
-        // O(n^2) -->>
-        // for(int i = 0  ; i < nums.length ; i++){
-        //     for(int j = i+1  ; j < nums.length ; j++){
-        //         if(nums[i] == nums[j]){
-        //             return true;
-        //         }
-        //     }
-        // }
-        // return false;
+    //    }
+    //    return false; 
 
-        //O(nlogn) -->>
+    // Two pointer-->not able to make a solid logic
+    // 
+        // HashSet<Integer> set = new HashSet<>();
 
-        // int n = nums.length;
-        // Arrays.sort(nums);
-
-        // if(nums[0] == nums[1]) return true;
-        // if(nums[n-1] == nums[n-2]) return true;
-
-        // for(int i = 1 ; i < n-1 ; i++){
-        //     if(nums[i] == nums[i+1]){
+        // for(int num : nums){
+        //     if(set.contains(num)){
         //         return true;
+                
+                
         //     }
+        //     set.add(num);
         // }
         // return false;
 
+        // with no extra space-->
+        Arrays.sort(nums);
 
-        //O(n) -->>
-
-        int n = nums.length;
-
-        HashSet<Integer> set = new HashSet<>();
-
-        for(int i = 0 ; i < n ; i++){
-            if(set.contains(nums[i])){
+        for(int i = 1 ; i < n ; i++){
+            if(nums[i] == nums[i-1]){
                 return true;
-            }
-            else{
-                set.add(nums[i]);
             }
         }
         return false;
