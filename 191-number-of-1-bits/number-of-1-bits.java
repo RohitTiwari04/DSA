@@ -9,10 +9,22 @@ class Solution {
         // }
         // return count;
 
-        while(n > 0){
-            n = (n & (n-1));
-            count++;
-        }
-        return count;
+
+        //Approach2-->
+        // while(n > 0){
+        //     n = (n & (n-1));
+        //     count++;
+        // }
+        // return count;
+
+        //Approach3-->
+        // while(n != 0){
+        //     count += (n % 2);
+        //     n= (n/2);
+        // }
+        // return count;
+
+        //Approach4-->
+         return  Integer.bitCount(n);
     }
 }
